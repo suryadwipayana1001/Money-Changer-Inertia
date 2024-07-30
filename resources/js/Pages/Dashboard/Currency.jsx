@@ -69,9 +69,9 @@ function Currency({ money, rates }) {
                             <div className='mt-3'>
                                 <div style={{fontSize:20, fontWeight:'bold', color:'white'}}>RATE TODAY </div>
                                <div  style={{fontSize:18, fontWeight:'bold', color:'white'}}> {formattedDate} {formattedTime}</div>
-                                {/* {rates.map((cur, index) => (
+                                {rates.map((cur, index) => (
                                     <div key={index}><span style={{color:'white', fontSize:17, fontWeight:'bold'}}>{cur.name} = {cur.value}</span></div>
-                                ))} */}
+                                ))}
                             </div>
                         </div>
                     </div>

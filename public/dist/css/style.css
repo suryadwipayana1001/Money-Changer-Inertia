@@ -136,6 +136,20 @@
     font-size: 20px;
     color:var(--white-color);
 }
+
+.currency-title-dashboard {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    color:var(--orange-color);
+}
+
+.title-dashboard {
+    text-align: right;
+    font-weight: bold;
+    font-size: 20px;
+    color:var(--orange-color);
+}
 .marquee-text{
     font-weight: bold;
     font-size: 17px;
@@ -151,6 +165,9 @@
 .bg-title{
     border-right: 20px solid var(--dark-blue-color);
 }
+.bg-title-dashboard{
+    border-right: 20px solid transparent;
+}
 .bg-1 {
     border-right: 5px solid var(--dark-blue-color);
     border-left: 5px solid var(--dark-blue-color);
@@ -160,5 +177,17 @@
 .bg-2 {
     border-right: 5px solid var(--dark-blue-color);
     border-left: 5px solid var(--dark-blue-color);
+    background-color: var(--gray-color);
+}
+
+.bg-1 {
+    border-right: 5px solid var(--white-color);
+    border-left: 5px solid var(--white-color);
+    background-color: var(--white-color);
+}
+
+.bg-2 {
+    border-right: 5px solid var(--white-color);
+    border-left: 5px solid var(--white-color);
     background-color: var(--gray-color);
 }

@@ -18,10 +18,16 @@ class DashboardController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $filters = $request->only(['prodi', 'kelas', 'angkatan', 'status_pengiriman', 'tanggal']);
+        $rates = Rate::latest()->get();
+        $money = Money::latest()->get()->map(function ($item) {
+
+            $item->foto = Storage::url('fotos/' . $item->foto);
+            return $item;
+        });
 
         return Inertia::render('Dashboard/Index', [
-
+            'money' => $money,
+            'rates'=>$rates
         ]);
     }
     public function currency(){
