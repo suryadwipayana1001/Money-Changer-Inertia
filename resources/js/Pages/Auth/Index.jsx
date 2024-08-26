@@ -81,7 +81,7 @@ export default function AuthIndex({ auth, users }) {
                                             </thead>
                                             <tbody>
                                                 {users.map((user, index) => (
-                                                    <tr key={index}>
+                                                    <tr key={user.id}>
                                                         <td>{user.name}</td>
                                                         <td>{user.email}</td>
                                                             <td>

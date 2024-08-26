@@ -81,7 +81,7 @@ export default function CurrencyIndex({ auth, rates }) {
                                             </thead>
                                             <tbody>
                                                 {rates.map((cur, index) => (
-                                                    <tr key={index}>
+                                                    <tr key={cur.id}>
                                                         <td>{cur.name}</td>
                                                         <td>{cur.value}</td>
                                                             <td>

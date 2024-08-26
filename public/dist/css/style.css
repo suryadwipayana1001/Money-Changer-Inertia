@@ -161,6 +161,10 @@
     border-bottom: 3px solid var(--white-color);
     text-align: center;
     justify-content: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: 20px;
 }
 .bg-title{
     border-right: 20px solid var(--dark-blue-color);

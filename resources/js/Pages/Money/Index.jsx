@@ -16,13 +16,27 @@ export default function CurrencyIndex({ auth, money }) {
         setShowModal(true);
     };
 
-    const handleEdit=(id)=>{
+    const handleEdit = (id) => {
         Inertia.get(`/money/${id}/edit`);
     }
-    // Method to delete a user
+    // // Method to delete a user
+    // const deleteCurrency = async (id) => {
+    //     Inertia.delete(`/money/${id}`);
+    //     setShowModal(false); // Close modal after delete
+    // };
+
+    const [loadingId, setLoadingId] = useState(null);
+
     const deleteCurrency = async (id) => {
-        Inertia.delete(`/money/${id}`);
-        setShowModal(false); // Close modal after delete
+        setLoadingId(id); // Set loading id saat proses hapus dimulai
+        try {
+            await Inertia.delete(`/money/${id}`);
+            setShowModal(false); // Tutup modal setelah menghapus
+        } catch (error) {
+            console.error("Delete failed: ", error);
+        } finally {
+            setLoadingId(null); // Reset loading id setelah selesai
+        }
     };
 
     useEffect(() => {
@@ -62,7 +76,7 @@ export default function CurrencyIndex({ auth, money }) {
                             </div>
                         </div>
                     </div>
-            </section>
+                </section>
                 <section className="content">
                     <div className="container-fluid">
                         <div className="row">
@@ -81,14 +95,20 @@ export default function CurrencyIndex({ auth, money }) {
                                             </thead>
                                             <tbody>
                                                 {money.map((cur, index) => (
-                                                    <tr key={index}>
+                                                    <tr key={cur.id}>
                                                         <td><img src={cur.foto} alt="Foto" style={{ width: '100px', height: 'auto' }} /> {cur.country}</td>
                                                         <td>{cur.buy}</td>
                                                         <td>{cur.sell}</td>
-                                                            <td>
-                                                                 <button onClick={() => handleEdit(cur.id)} className="btn btn-sm btn-dark-blue">Edit</button>
-                                                                 <button onClick={() => handleShowModal(cur.id, cur.country)} className="btn btn-sm btn-red ml-2">Delete</button>
-                                                            </td>
+                                                        <td>
+                                                            <button onClick={() => handleEdit(cur.id)} className="btn btn-sm btn-dark-blue">Edit</button>
+                                                            <button
+                                                                onClick={() => handleShowModal(cur.id, cur.country)}
+                                                                className="btn btn-sm btn-red ml-2"
+                                                                disabled={loadingId === cur.id}
+                                                            >
+                                                                {loadingId === cur.id ? 'Deleting...' : 'Delete'}
+                                                            </button>
+                                                        </td>
                                                     </tr>
                                                 ))}
                                             </tbody>
