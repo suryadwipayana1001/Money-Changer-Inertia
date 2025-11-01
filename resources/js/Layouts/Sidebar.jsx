@@ -36,7 +36,13 @@ const Sidebar = (props) => {
                                 <p>Dashboard</p>
                             </a>
                         </li>
-                        <li className={`nav-item ${isSubMenuOpen ? "menu-open" : ""}`}>
+                        <li className="nav-item">
+                            <a href="/money" className={props.active === 'money' ? "nav-link active" : 'nav-link'} >
+                                <i className="nav-icon fas fa-money-bill-wave"></i>
+                                <p> Currency Settings</p>
+                            </a>
+                        </li>
+                        {/* <li className={`nav-item ${isSubMenuOpen ? "menu-open" : ""}`}>
                             <a href="#" className="nav-link" onClick={handleMenuClick}>
                                 <i className="nav-icon fas fa-money-bill-wave"></i>
                                 <p>
@@ -58,7 +64,7 @@ const Sidebar = (props) => {
                                     </a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> */}
                         <li className="nav-item">
                             <a href="/user" className={props.active === 'user' ? "nav-link active" : 'nav-link'}>
                                 <i className="nav-icon fas fa-users"></i>

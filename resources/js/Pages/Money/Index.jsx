@@ -87,6 +87,7 @@ export default function CurrencyIndex({ auth, money }) {
                                         <table id="example1" className="table table-bordered table-striped">
                                             <thead>
                                                 <tr>
+                                                    <th>No</th>
                                                     <th>Country</th>
                                                     <th>Buy</th>
                                                     <th>Sell</th>
@@ -96,6 +97,7 @@ export default function CurrencyIndex({ auth, money }) {
                                             <tbody>
                                                 {money.map((cur, index) => (
                                                     <tr key={cur.id}>
+                                                        <td>{index+1}</td>
                                                         <td><img src={cur.foto} alt="Foto" style={{ width: '100px', height: 'auto' }} /> {cur.country}</td>
                                                         <td>{cur.buy}</td>
                                                         <td>{cur.sell}</td>

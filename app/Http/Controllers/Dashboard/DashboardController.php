@@ -19,7 +19,7 @@ class DashboardController extends Controller
     public function __invoke(Request $request)
     {
         $rates = Rate::latest()->get();
-        $money = Money::latest()->get()->map(function ($item) {
+        $money = Money::orderBy('created_at', 'asc')->get()->map(function ($item) {
 
             $item->foto = Storage::url('fotos/' . $item->foto);
             return $item;
@@ -32,7 +32,7 @@ class DashboardController extends Controller
     }
     public function currency(){
         $rates = Rate::latest()->get();
-        $money = Money::latest()->get()->map(function ($item) {
+        $money = Money::orderBy('created_at', 'asc')->get()->map(function ($item) {
 
             $item->foto = Storage::url('fotos/' . $item->foto);
             return $item;
